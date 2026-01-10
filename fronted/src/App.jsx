@@ -1,26 +1,22 @@
-import React from 'react';
-import { Box, AppBar, Toolbar, Typography, CssBaseline } from '@mui/material';
-import Dashboard from './pages/Dashboard';
-import config from './config'; 
+import React from "react";
+import { Box, CssBaseline, ThemeProvider } from "@mui/material";
+import darkTheme from "./theme/darkTheme";
+import Sidebar from "./components/sidebar";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
-    <Box sx={{ flexGrow: 1, bgcolor: '#f5f5f5', minHeight: '100vh' }}>
+    <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      
-      {/* כותרת עליונה כחולה */}
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" component="div">
-            {config.appTitle}
-          </Typography>
-        </Toolbar>
-      </AppBar>
 
-      {/* טעינת הדף שיצרנו */}
-      <Dashboard />
-      
-    </Box>
+      <Box sx={{ display: "flex" }}>
+        <Sidebar />
+
+        <Box component="main" sx={{ flexGrow: 1, p: 3, minHeight: "100vh" }}>
+          <Dashboard />
+        </Box>
+      </Box>
+    </ThemeProvider>
   );
 }
 
