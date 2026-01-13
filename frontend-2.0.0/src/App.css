@@ -1,0 +1,9 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: var(--text-color); /* שימוש במשתנה לצבע הטקסט */
+  font-family: Figtree, sans-serif;
+}

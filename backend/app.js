@@ -1,7 +1,6 @@
 // app.js
-const express = require('express');
-const cors = require('cors');
-const routes = require('./routes/routes');
+const express = require("express");
+const cors = require("cors");
 
 const app = express();
 
@@ -13,15 +12,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // שימוש בראוטים תחת הפרפיקס /api
-app.use('/api', routes);
 
 // טיפול בשגיאות כלליות (404)
 app.use((req, res, next) => {
-    res.status(404).json({ message: 'Endpoint not found' });
+  res.status(404).json({ message: "Endpoint not found" });
 });
 
 module.exports = app;
 const PORT = 3000;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
